@@ -1,4 +1,4 @@
-//Решение задачи
+//Решение задачи 
 #include <iostream>
 #include <vector>
 #include <cmath>
