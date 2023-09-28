@@ -9,14 +9,14 @@ private:
     std::vector<double> function;
 public:
     // Конструктор для создания экземпляра класса с заданной размерностью
-    Integral(int size) : size(size), argument(size), function(size) {
+    Integral(int dimensions) : size(dimensions), argument(dimensions), function(dimensions) {
         std::cout << "input= argument";
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < dimensions; i++) {
             std::cin >> argument[i];
             std::cout << " " << argument[i];
         }
         std::cout << "\nfunction";
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < dimensions; i++) {
             std::cin >> function[i];
             std::cout << " " << function[i];
         }
@@ -56,7 +56,7 @@ public:
     // Метод для вычисления интеграла методом трапеций
     double trapezoidalMethod() {
         double integral = 0.0;
-        for (int i = 0; i < size - 1; i++) {
+        for (int i = 0; i < dimensions - 1; i++) {
             integral += 0.5 * (argument[i + 1] - argument[i]) * (function[i] + function[i + 1]);
         }
         return integral;
@@ -65,7 +65,7 @@ public:
     // Метод для вычисления интеграла методом Симпсона
     double simpsonsMethod() {
         double integral = 0.0;
-        for (int i = 0; i < size - 2; i += 2) {
+        for (int i = 0; i < dimensions - 2; i += 2) {
             double h = (argument[i + 2] - argument[i]) / 6.0;
             integral += h * (function[i] + 4 * function[i + 1] + function[i + 2]);
         }
@@ -75,7 +75,7 @@ public:
     // Метод для вычисления интеграла методом Ньютона (3/8)
     double newtonMethod() {
         double integral = 0.0;
-        for (int i = 0; i < size - 2; i += 3) {
+        for (int i = 0; i < dimensions - 2; i += 3) {
             integral += (argument[i + 3] - argument[i]) / 8.0 * (function[i] + 3.0 * function[i + 1] + 3 * function[i + 2] + function[i + 3]);
         }
         return integral;
@@ -83,11 +83,11 @@ public:
 };
 
 int main() {
-    int size;
+    int dimensions;
    // std::cout << "Введите размерность массивов: ";
-    std::cin >> size;
+    std::cin >> dimensions;
 
-    Integral integral(size);
+    Integral integral(dimensions);
 
     std::cout << "lev priam= " << integral.leftRectangleMethod() << std::endl;
     std::cout << "sr priam= " << integral.middleRectangleMethod() << std::endl;
