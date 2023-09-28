@@ -46,17 +46,17 @@ int main() {
     }
     std::cout << std::endl;
 
-    int choice;
-    std::cin >> choice;
+    int select;
+    std::cin >> select;
 
-    while (choice != 0) {
-        if (choice == 1) {
+    while (select != 0) {
+        if (select == 1) {
             double newElement;
             std::cin >> newElement;
             arr.push_back(newElement);
             std::cout << "+: " << arr.size() << std::endl;
         }
-        else if (choice == 2) {
+        else if (select == 2) {
             if (!arr.empty()) {
                 arr.pop_back();
                 std::cout << "-: " << arr.size() << std::endl;
@@ -99,7 +99,7 @@ int main() {
         }
         std::cout << std::endl;
 
-        std::cin >> choice;
+        std::cin >> select;
     }
 
     return 0;
