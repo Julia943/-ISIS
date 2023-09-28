@@ -1,3 +1,4 @@
+//решение задачи
 #include <iostream>
 using namespace std;
 
